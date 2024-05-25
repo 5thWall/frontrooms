@@ -4,5 +4,5 @@
  :drawable
  (fn [c image]
    (set c.img image)
-   (set c.w (image:getWidth))
-   (set c.h (image:getHeight))))
+   (set c.width (image:getWidth))
+   (set c.height (image:getHeight))))

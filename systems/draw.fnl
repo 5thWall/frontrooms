@@ -2,15 +2,15 @@
 (import-macros With :macros.with)
 (import-macros {: new-system} :macros.ecs)
 
-(local draw love.graphics.draw)
+(local ldraw love.graphics.draw)
 
 (new-system ;draw
  {:pool [:position :drawable]}
  
  {:draw
-  (fn draw [self]
+  (fn [self]
     (each [_ e (ipairs self.pool)]
-      (draw e.drawable.img
+      (ldraw e.drawable.img
             e.position.x e.position.y
             e.position.r
             1 1
