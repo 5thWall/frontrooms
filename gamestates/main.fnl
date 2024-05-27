@@ -10,6 +10,7 @@
 ;;; Game State
 {:world (Concord.world)
 
+
  :init
  (fn init [self assets]
   (let [world self.world

@@ -1,4 +1,5 @@
-(local Gamestate (require :lib.gamestate))
+(local G (require :lib.gamestate))
+(local GS (require :gamestates))
     
 
 (fn love.load []
@@ -9,8 +10,8 @@
       
   (require :assets)
 
-  (Gamestate.registerEvents)
-  (Gamestate.switch (require :gamestates.main)))
+  (G.registerEvents)
+  (G.switch GS.main))
 
 (fn love.handlers.stdin [line]
   ;; evaluate lines read from stdin as fennel code
