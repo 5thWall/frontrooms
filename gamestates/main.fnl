@@ -5,6 +5,7 @@
 (local Camera (require :lib.camera))
 (import-macros With :macros.with)
 
+
 ;;; Game State
 {:world (Concord.world)
 
@@ -19,6 +20,7 @@
       S.turn
       S.accelerate
       S.move
+      S.camera
       S.draw)
 
     (-> (world:newEntity)

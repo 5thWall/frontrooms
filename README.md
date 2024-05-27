@@ -12,6 +12,6 @@
   - [x] movement components/systems
   - [] starfield for context
     - [x] background paralax
-    - [] camera tracks player
+    - [x] camera tracks player
     - [] more star context layers
 - [x] macro for module initializers

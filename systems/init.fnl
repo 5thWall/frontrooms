@@ -2,6 +2,7 @@
 
 (module :systems
  :accelerate
+ :camera
  :draw
  :input
  :move
