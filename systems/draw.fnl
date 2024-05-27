@@ -1,5 +1,4 @@
 (local Concord (require :lib.concord))
-(import-macros With :macros.with)
 (import-macros {: new-system} :macros.ecs)
 
 (local ldraw love.graphics.draw)
@@ -10,8 +9,11 @@
  {:draw
   (fn [self]
     (each [_ e (ipairs self.pool)]
-      (ldraw e.drawable.img
-            e.position.x e.position.y
-            e.position.r
-            1 1
-            (/ e.drawable.width 2) (/ e.drawable.height 2))))})
+      ; (print (.. "Drawing " e.drawable.key))
+      (let [world (self:getWorld)
+            res (world:getResource e.drawable.key)]
+        (ldraw res.img
+              e.position.x e.position.y
+              e.position.r
+              1 1
+              (/ res.width 2) (/ res.height 2)))))})
