@@ -21,7 +21,7 @@ function parallax:draw(f)
     love.graphics.push(self.mode)
     love.graphics.origin()
     love.graphics.translate(self.target.w2 + self.offsetX, self.target.h2 + self.offsetY)
-    love.graphics.rotate(-self.target.angle)
+    love.graphics.rotate(-self.target.rot)
     love.graphics.scale(self.target.scale * self.scale)
     love.graphics.translate(-self.target.x * self.speed, -self.target.y * self.speed)
 

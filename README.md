@@ -7,11 +7,33 @@
 
 
 ## TODO
+- [] asteroid checkpoints
+  - [] spawn in level
+  - [] detect player
+    - [] shut down
+  - [] Direction to next one
+  - [] start/finish
+- [] time laps
+  - [] finish resets timer/checkpoints
+  - [] save max time
+  - [] split times
+- [] player thrust visible
+  - [] SFX
+- [] splash screen (very important!)
+- [] asteroid obstacles
+- [] enemy obstacles
+- [] health
+- [] powerups
+  - [] healing
+  - [] boost
+- [] main menu
+  - [] arcade
+  - [] endless
 - [x] Visible player entity
 - [x] player can move
   - [x] movement components/systems
-  - [] starfield for context
+  - [x] starfield for context
     - [x] background paralax
     - [x] camera tracks player
-    - [] more star context layers
+    - [x] more star context layers
 - [x] macro for module initializers

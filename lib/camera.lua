@@ -61,11 +61,12 @@ end
 
 
 local function new(x,y, zoom, rot, smoother)
-	x,y  = x or love.graphics.getWidth()/2, y or love.graphics.getHeight()/2
+	w2, h2 = love.graphics.getWidth()/2, love.graphics.getHeight()/2
+	x,y  = x or w2, y or h2
 	zoom = zoom or 1
 	rot  = rot or 0
 	smoother = smoother or camera.smooth.none() -- for locking, see below
-	return setmetatable({x = x, y = y, scale = zoom, rot = rot, smoother = smoother}, camera)
+	return setmetatable({x = x, y = y, w2 = w2, h2 = h2, scale = zoom, rot = rot, smoother = smoother}, camera)
 end
 
 function camera:lookAt(x,y)

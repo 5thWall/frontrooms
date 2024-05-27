@@ -496,6 +496,12 @@ end
 -- @tparam Any resource Resource to set
 -- @treturn World self
 function World:setResource(name, resource)
+   if (type(name) == "table") then
+      print("Table:")
+      for k,_v in pairs(name) do
+         print(k)
+      end
+   end
   self.__resources[name] = resource
   return self
 end
