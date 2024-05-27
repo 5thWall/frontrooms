@@ -7,7 +7,10 @@
 
 
 ## TODO
-- [] Visible player entity
-- [] player can move
- - [] movement components/systems
- - [] starfield for context
+- [x] Visible player entity
+- [x] player can move
+  - [x] movement components/systems
+  - [] starfield for context
+    - [x] background paralax
+    - [] camera tracks player
+    - [] more star context layers
