@@ -1,7 +1,9 @@
-{;Components
- :acceleration (require (.. ... ".acceleration"))
- :player (require (.. ... ".player"))
- :position (require (.. ... ".position"))
- :turn (require (.. ... ".turn"))
- :drawable (require (.. ... ".drawable"))
- :velocity (require (.. ... ".velocity"))}
+(import-macros {: module} :macros.util)
+
+(module :components
+  :acceleration
+  :player
+  :position
+  :turn
+  :drawable
+  :velocity)

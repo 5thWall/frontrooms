@@ -14,3 +14,4 @@
     - [x] background paralax
     - [] camera tracks player
     - [] more star context layers
+- [x] macro for module initializers

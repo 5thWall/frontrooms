@@ -1,6 +1,8 @@
-{;Systems
- :accelerate (require (.. ... ".accelerate"))
- :draw (require (.. ... ".draw"))
- :input (require (.. ... ".input"))
- :move (require (.. ... ".move"))
- :turn (require (.. ... ".turn"))}
+(import-macros {: module} :macros.util)
+
+(module :systems
+ :accelerate
+ :draw
+ :input
+ :move
+ :turn)
