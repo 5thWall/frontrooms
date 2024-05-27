@@ -9,7 +9,7 @@
 (local star3 (new-image :assets/star3.png))
 
 
-(fn gen-starfield [width height num star scale]
+(fn gen-starfield [width height num star sx sy]
   (let [canvas (G.newCanvas width height)
         sw2 (/ (star:getWidth) 2)
         sh2 (/ (star:getHeight) 2)
@@ -20,7 +20,7 @@
       (G.draw star
               (rand sw2 w) (rand sh2 h)
               0
-              scale scale
+              sx sy
               sw2 sh2))
               
     (G.setCanvas)
@@ -42,7 +42,7 @@
 {;Assets
   :background (img :background.png)
   :playerShip (img :playerShip.png)
-  :stars1 (gen-starfield 1500 1500 150 star1 0.5)
-  :stars2 (gen-starfield 1500 1500 100 star2 0.5)
-  :stars3 (gen-starfield 1500 1500 50 star3 0.5)}
+  :stars1 (gen-starfield 1500 1500 75 star1 0.8 0.5)
+  :stars2 (gen-starfield 1500 1500 50 star2 0.6 0.5)
+  :stars3 (gen-starfield 1500 1500 25 star3 0.5 0.5)}
  
