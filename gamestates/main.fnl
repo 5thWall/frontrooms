@@ -1,10 +1,11 @@
 (local Concord (require :lib.concord))
-(local A (. (require :components) :A))
+(local {: A} (require :components))
 (local S (require :systems))
-(local I (require :assets))
+(local images (require :assets))
 (local Parallax (require :lib.parallax))
 (local Camera (require :lib.camera))
 (import-macros With :macros.with)
+(local load-level (require :levels))
 
 
 ;;; Game State
@@ -23,13 +24,16 @@
       S.camera
       S.draw)
 
-    (each [key img (pairs I)]
+    (each [key img (pairs images)]
       (let [ikey (.. :image. key)]
         (print (.. "Setting Resource " ikey))
         (world:setResource ikey img)))
+    (print "Finished loading resources")
 
     (-> (world:newEntity)
         (: :assemble A.player :image.playerShip))
+    
+    (load-level :01-Tutorial world)
     
     (world:setResource :layer.bg (Parallax.new camera 1 0.01))
     (world:setResource :layer.st1 (Parallax.new camera 1 0.10))

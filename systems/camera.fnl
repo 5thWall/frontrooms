@@ -1,6 +1,7 @@
 (local Concord (require :lib.concord))
 (local V (require :lib.vector))
 (local {:map-range map : clamp} (require :util))
+(local get-window-wh love.window.getMode)
 (import-macros {: new-system} :macros.ecs)
 
 (local max-speed (math.pow 500 2))
@@ -15,15 +16,15 @@
           world (self:getWorld)
           camera (world:getResource :camera.main)
           pradius (. (world:getResource player.drawable.key) :radius)
-          (width height) (love.window.getMode)
+          (width height) (get-window-wh)
           smallest (math.min height width)
           radius (/ (math.min (- smallest (/ smallest 10))
                               (- smallest (* 4.5 pradius)))
                     2)            
           speed (clamp (V.len2 vx vy) 0 max-speed)
-          (dx dy) (V.normalize vx vy) ;; normal movement vector
+          (dx dy) (V.normalize vx vy)
           (xoff yoff) (V.mul (map speed 0 max-speed 0 radius) dx dy)]
       ; (print (.. "Speed: " (* 100 (/ speed max-speed)) "%"))
       (camera:lockPosition (+ player.position.x xoff)
-                           (+ player.position.y yoff))))}) ;; otherwise focus on the player
+                           (+ player.position.y yoff))))})
      

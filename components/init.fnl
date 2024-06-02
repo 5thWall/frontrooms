@@ -3,6 +3,7 @@
 (module :components
   [:A :assemblages]
   :acceleration
+  :checkpoint
   :player
   :position
   :turn

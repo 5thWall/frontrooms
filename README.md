@@ -7,19 +7,22 @@
 
 
 ## TODO
-- [] asteroid checkpoints
-  - [] spawn in level
+- [x] satelite checkpoints
+  - [x] level generation
   - [] detect player
-    - [] shut down
+    - [] hit-boxes on player and checkpoints
+    - [] mark chk and send event
   - [] Direction to next one
   - [] start/finish
+    - [] resets all checkpoints
 - [] time laps
   - [] finish resets timer/checkpoints
   - [] save max time
   - [] split times
 - [] player thrust visible
   - [] SFX
-- [] splash screen (very important!)
+- [x] splash screen (very important!)
+  - [] figgure out why splash screen doesn't work
 - [] asteroid obstacles
 - [] enemy obstacles
 - [] health

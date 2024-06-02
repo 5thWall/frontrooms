@@ -1,7 +1,13 @@
 (fn camera [camera & body]
-  `(do (: ,camera :attach)
-       ,body
-       (: ,camera :detach)))
+ `(do (: ,camera :attach)
+      ,body
+      (: ,camera :detach)))
+
+
+(fn canvas [canvas & body]
+ `(do (love.graphics.setCanvas canvas)
+      ,body
+      (love.graphics.setCanvas)))
 
 
 (fn color [r g b a & body]
@@ -11,11 +17,11 @@
      (love.graphics.setColor r# g# b# a#)))
 
 
-(fn shader [shader & body]
+(fn shader [g shader & body]
   `(do (love.graphics.setShader ,shader)
        ,body
        (love.graphics.setShader)))
 
 
 ;; Exports
-{: camera : color : shader}
+{: camera : canvas : color : shader}

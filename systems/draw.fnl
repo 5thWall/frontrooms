@@ -9,7 +9,7 @@
  {:draw
   (fn [self]
     (each [_ e (ipairs self.pool)]
-      ; (print (.. "Drawing " e.drawable.key))
+      (print (.. "Drawing " e.drawable.key))
       (let [world (self:getWorld)
             res (world:getResource e.drawable.key)]
         (ldraw res.img
