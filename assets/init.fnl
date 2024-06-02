@@ -4,9 +4,6 @@
 (local G love.graphics)
 (import-macros with :macros.with)
 
-;;;; Asset loding and generation
-;;;; Loads images and constructs usefull trees/maps/etc...
-
 
 ;;; Asset Loading
 (fn img [fname]
@@ -80,14 +77,13 @@
        h2 (/ height 2)]
     (with.canvas canvas
       ;; Bounding box
-      (with.color 1 1 1 1
-        (G.setLineStyle :rough)
-        (G.setLineWidth 5)
-        (G.line 0 0
-                width 0
-                width height
-                0 height
-                0 0))
+      ; (with.color 1 1 1 1
+      ;   (G.setLineWidth 5)
+      ;   (G.line 0 0
+      ;           width 0
+      ;           width height
+      ;           0 height
+      ;           0 0))
        
       ;; Draw the line
       (G.draw line
