@@ -1,28 +1,32 @@
-(local Concord (require :lib.concord))
-(local {: A} (require :components))
-(local S (require :systems))
+(local ecs (require :lib.concord))
+(local a (. (require :components) :A))
+(local s (require :systems))
 (local images (require :assets))
-(local Parallax (require :lib.parallax))
-(local Camera (require :lib.camera))
-(import-macros With :macros.with)
+(local parallax (require :lib.parallax))
+(local camera (require :lib.camera))
+(import-macros with :macros.with)
 (local load-level (require :levels))
 
 
 ;;; Game State
-{:world (Concord.world)
+{:world (ecs.world)
 
 
  :init
  (fn init [self assets]
   (let [world self.world
-        camera (Camera.new 0 0)]
+        camera (camera.new 0 0)]
     (world:addSystems
-      S.input
-      S.turn
-      S.accelerate
-      S.move
-      S.camera
-      S.draw)
+      s.input
+      s.turn
+      s.accelerate
+      s.move
+      s.update-hitbox
+      s.checkpoint-hit
+      s.cross-checkpoint
+      s.camera
+      s.draw
+      s.draw-hitbox)
 
     (each [key img (pairs images)]
       (let [ikey (.. :image. key)]
@@ -31,14 +35,14 @@
     (print "Finished loading resources")
 
     (-> (world:newEntity)
-        (: :assemble A.player :image.playerShip))
+        (: :assemble a.player :image.playerShip))
     
     (load-level :01-Tutorial world)
     
-    (world:setResource :layer.bg (Parallax.new camera 1 0.01))
-    (world:setResource :layer.st1 (Parallax.new camera 1 0.10))
-    (world:setResource :layer.st2 (Parallax.new camera 1 0.25))
-    (world:setResource :layer.st3 (Parallax.new camera 1 0.30))
+    (world:setResource :layer.bg (parallax.new camera 1 0.01))
+    (world:setResource :layer.st1 (parallax.new camera 1 0.10))
+    (world:setResource :layer.st2 (parallax.new camera 1 0.25))
+    (world:setResource :layer.st3 (parallax.new camera 1 0.30))
     (world:setResource :camera.main camera)))
 
  :update
@@ -57,7 +61,7 @@
         st2-img (world:getResource :image.stars2)
         st3-layer (world:getResource :layer.st3)
         st3-img (world:getResource :image.stars3)]
-    (With.camera camera
+    (with.camera camera
       (bg-layer:draw (fn [] (bg-layer:draw_tiled_xy 0 0 bg-img.img)))
       (st1-layer:draw (fn [] (st1-layer:draw_tiled_xy 0 0 st1-img.img)))
       (st2-layer:draw (fn [] (st2-layer:draw_tiled_xy 0 0 st2-img.img)))

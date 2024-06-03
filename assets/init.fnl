@@ -1,18 +1,20 @@
-(local new-image love.graphics.newImage)
-(local V (require :lib.vector))
+(local g love.graphics)
+(local new-image g.newImage)
 (local rand love.math.random)
-(local G love.graphics)
+(local v (require :lib.vector))
+(local s (require :lib.strike))
 (import-macros with :macros.with)
 
 
 ;;; Asset Loading
 (fn img [fname]
   (let [img (new-image (.. :assets/ fname))
+        width (img:getWidth) 
         height (img:getHeight)
-        width (img:getWidth)]
-    {
-      : img : height : width
-      :radius (/ (V.len height width) 2)}))
+        radius (/ (v.len width height) 2)
+        ; hitbox (s.trikers.Circle 0 0 radius 0)
+        hitbox (s.trikers.Rectangle 0 0 width height 0)]
+    {: img : height : width : hitbox : radius}))
 
 
 ;;; Starfield Stuff
@@ -22,14 +24,14 @@
 
 
 (fn gen-starfield [width height num star sx sy]
-  (let [canvas (G.newCanvas width height)
+  (let [canvas (g.newCanvas width height)
         sw2 (/ (star:getWidth) 2)
         sh2 (/ (star:getHeight) 2)
         w (- width sw2)
         h (- height sh2)]
     (with.canvas canvas
       (for [_ 1 num]
-        (G.draw star
+        (g.draw star
                 (rand sw2 w) (rand sh2 h)
                 0
                 sx sy
@@ -38,7 +40,7 @@
     {:img canvas
      : width
      : height
-     :radius (/ (V.len w h) 2)}))
+     :radius (/ (v.len w h) 2)}))
 
 
 ;;; Check/Endpoints
@@ -60,56 +62,65 @@
        blw2 (/ (blue:getWidth) 2)
        blh2 (/ (blue:getHeight) 2)
 
-       ;; linje middle
+       ;; line middle
        lnw2 (/ (line:getWidth) 2)
        lnh2 (/ (* expansion (line:getHeight)) 2)
-       lnvh2 (/ (- (* expansion (line:getHeight)) ;; visible line middle
-                   ylh2 blh2)
-                2)
+       lnvh2 (- (/ (* expansion (line:getHeight)) 2) 
+               ylh2 blh2)
+       lndx (* 4 lnw2)
+       lndy (* 4 lnvh2)
+       chbb (s.trikers.Rectangle 0 0 lndx lndy)
        
        ;; canvas size
        width (* 2 scale (math.max ylw2 blw2))
-       height (* 2 scale (+ lnvh2 ylh2 blh2))
-       canvas (G.newCanvas width height)
+       height (* 2 scale (+ lnh2 ylh2 blh2))
+       canvas (g.newCanvas width height)
 
        ;; canzas middle
        w2 (/ width 2)
        h2 (/ height 2)]
+    (print (chbb:getBbox))
     (with.canvas canvas
-      ;; Bounding box
+      (g.push)
+      (g.translate w2 h2)
+      (g.scale scale scale)
+
+      ;; Frame
       ; (with.color 1 1 1 1
-      ;   (G.setLineWidth 5)
-      ;   (G.line 0 0
+      ;   (g.setLineWidth 5)
+      ;   (g.line 0 0
       ;           width 0
       ;           width height
       ;           0 height
       ;           0 0))
        
       ;; Draw the line
-      (G.draw line
-              w2 h2 ;; x y
+      (g.draw line
+              0 0 ;; x y
               0     ;; r
-              scale (* scale expansion) ;; sx sy
+              1 expansion ;; sx sy
               lnw2 (/ lnh2 expansion)) ;; ox oy
     
       ;; Draw Blue
-      (G.draw blue
-              w2 (- h2 (* scale lnh2))
+      (g.draw blue
+              0 (- lnh2)
               0
-              scale scale
+              1 1
               blw2 blh2)
     
       ;; Draw Yellow
-      (G.draw yellow
-              w2 (+ h2 (* scale lnh2))
+      (g.draw yellow
+              0 lnh2
               math.pi
-              scale scale
-              ylw2 ylh2))
+              1 1
+              ylw2 ylh2)
+      (g.pop))
       
     {:img canvas
      : width
      : height
-     :radius (/ (V.len width height) 2)}))
+     :hitbox chbb
+     :radius (/ (v.len width height) 2)}))
 
 ;; All Together!
 {;Assets

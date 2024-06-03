@@ -4,6 +4,8 @@
   [:A :assemblages]
   :acceleration
   :checkpoint
+  :crossed
+  :hitbox
   :player
   :position
   :turn

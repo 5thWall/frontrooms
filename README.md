@@ -9,9 +9,9 @@
 ## TODO
 - [x] satelite checkpoints
   - [x] level generation
-  - [] detect player
-    - [] hit-boxes on player and checkpoints
-    - [] mark chk and send event
+  - [x] detect player
+    - [x] hit-boxes on player and checkpoints
+    - [x] mark chk and send event
   - [] Direction to next one
   - [] start/finish
     - [] resets all checkpoints

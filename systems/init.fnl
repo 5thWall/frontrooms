@@ -3,7 +3,11 @@
 (module :systems
  :accelerate
  :camera
+ :checkpoint-hit
+ :cross-checkpoint
+ :draw-hitbox
  :draw
  :input
  :move
- :turn)
+ :turn
+ :update-hitbox)

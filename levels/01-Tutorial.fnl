@@ -4,5 +4,5 @@
 (local endpoint A.endpoint)
 
 {:checkpoints
- [(: (entity) :assemble checkpoint 125 0 0 0)
-  (: (entity) :assemble endpoint 1000 0 0)]}
+ [(: (entity) :assemble endpoint 125 0 0 0)
+  (: (entity) :assemble checkpoint 1000 0 0 0)]}
