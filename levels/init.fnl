@@ -2,6 +2,7 @@
 (local checkpoint a.checkpoint)
 (local endpoint a.endpoint)
 (local player a.player)
+(local asteroid a.asteroid)
 
 (fn load-level [name world]
   (let [level (require (.. :levels. name))
@@ -31,4 +32,11 @@
     ;; Set player position
     (let [(x y tau) (unpack level.player-start)]
       (-> (world:newEntity)
-          (: :assemble player x y tau)))))
+          (: :assemble player x y tau)))
+
+    ;; Set asteroids
+    (each [_ a (ipairs level.asteroids)]
+      ; (print (unpack a))
+      (let [(x y move?) (unpack a)]
+        (-> (world:newEntity)
+            (: :assemble asteroid x y move?)))))) 

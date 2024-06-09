@@ -38,10 +38,10 @@
     
     (load-level :01-Tutorial world)
     
-    (world:setResource :layer.bg (parallax.new camera 1 0.01))
-    (world:setResource :layer.st1 (parallax.new camera 1 0.10))
-    (world:setResource :layer.st2 (parallax.new camera 1 0.25))
-    (world:setResource :layer.st3 (parallax.new camera 1 0.30))
+    (world:setResource :layer.bg (parallax.new camera 1 0.009))
+    (world:setResource :layer.st1 (parallax.new camera 1 0.02))
+    (world:setResource :layer.st2 (parallax.new camera 1 0.065))
+    (world:setResource :layer.st3 (parallax.new camera 1 0.070))
     (world:setResource :camera.main camera)))
 
  :update
@@ -66,7 +66,7 @@
       (st1-layer:draw (fn [] (st1-layer:draw_tiled_xy 0 0 st1-img.img)))
       (st2-layer:draw (fn [] (st2-layer:draw_tiled_xy 0 0 st2-img.img)))
       (st3-layer:draw (fn [] (st3-layer:draw_tiled_xy 0 0 st3-img.img)))
-      (camera:zoomTo 0.5)
+      (camera:zoomTo 0.35)
       (self.world:emit :draw))))
 
  :keypressed

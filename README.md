@@ -13,7 +13,7 @@ Race around asteroid field
 - [] player speed visible
 - [] SFX
 - [] Out of Bounds
-- [] asteroid obstacles
+- [x] asteroid obstacles
   - [] obsticals have collision
 - [] enemy obstacles
 - [] health

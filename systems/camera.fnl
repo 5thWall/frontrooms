@@ -4,7 +4,7 @@
 (local get-window-wh love.window.getMode)
 (import-macros {: new-system} :macros.ecs)
 
-(local max-speed (math.pow 500 2))
+(local max-speed (math.pow 250 2))
 
 (new-system ;camera
  {:players [:player :position]}
@@ -17,10 +17,8 @@
           camera (world:getResource :camera.main)
           pradius (. (world:getResource player.drawable.key) :radius)
           (width height) (get-window-wh)
-          smallest (math.min height width)
-          radius (/ (math.min (- smallest (/ smallest 10))
-                              (- smallest (* 4.5 pradius)))
-                    2)            
+          window-size (math.min height width)
+          radius (- (* 5 pradius) (/ window-size 2))
           speed (clamp (V.len2 vx vy) 0 max-speed)
           (dx dy) (V.normalize vx vy)
           (xoff yoff) (V.mul (map speed 0 max-speed 0 radius) dx dy)]

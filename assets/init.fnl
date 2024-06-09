@@ -132,6 +132,14 @@
 ;; All Together!
 {;Assets
   :arrow (img :arrow.png (/ math.pi 2))
+  :asteroid1 (img :meteorGrey_big1.png)
+  :asteroid2 (img :meteorGrey_big2.png)
+  :asteroid3 (img :meteorGrey_big3.png)
+  :asteroid4 (img :meteorGrey_big4.png)
+  :masteroid1 (img :meteorBrown_big1.png)
+  :masteroid2 (img :meteorBrown_big2.png)
+  :masteroid3 (img :meteorBrown_big3.png)
+  :masteroid4 (img :meteorBrown_big4.png)
   :background (img :background.png)
   :checkpoint (checkpoint check-blue check-yellow line-blue 3 8) 
   :checkpoint-deactivated (checkpoint check-blue check-yellow line-red 3 8)
