@@ -4,7 +4,8 @@
       (: :give :position x y tau)
       (: :give :velocity 0 0)
       (: :give :drawable :image.playerShip)
-      (: :give :hitbox :image.playerShip)))
+      (: :give :hitbox :image.playerShip)
+      (: :give :thrust-offset 0 24)))
       
 
 (fn checkpoint [entity x y tau]

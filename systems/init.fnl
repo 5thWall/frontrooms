@@ -6,6 +6,7 @@
  :checkpoint-hit
  :cross-checkpoint
  :draw-hitbox
+ :draw-thrust
  :draw
  :input
  :move

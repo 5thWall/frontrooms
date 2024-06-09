@@ -17,7 +17,7 @@
               cy e.guide.to.position.y
               (dx dy) (v.mul 200 (v.normalize (v.sub cx cy px py)))
               (ax ay) (v.add px py dx dy)
-              tau (+ tau-offset (v.angleTo (v.sub cx cy ax ay)))]
+              tau (v.angleTo (v.sub cx cy ax ay))]
           ; (print (.. px :: py :| ax :: ay :| dx :: dy :| tau))
           (set e.position.x ax)
           (set e.position.y ay)

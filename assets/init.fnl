@@ -7,14 +7,15 @@
 
 
 ;;; Asset Loading
-(fn img [fname]
+(fn img [fname roff]
   (let [img (new-image (.. :assets/ fname))
         width (img:getWidth) 
         height (img:getHeight)
         radius (/ (v.len width height) 2)
+        roff (or roff 0)
         ; hitbox (s.trikers.Circle 0 0 radius 0)
         hitbox (s.trikers.Rectangle 0 0 width height 0)]
-    {: img : height : width : hitbox : radius}))
+    {: img : height : width : hitbox : roff : radius}))
 
 
 (fn with-hitbox [img]
@@ -45,6 +46,7 @@
     {:img canvas
      : width
      : height
+     :roff 0
      :radius (/ (v.len w h) 2)}))
 
 
@@ -124,11 +126,12 @@
      : width
      : height
      :hitbox chbb
+     :roff 0
      :radius (/ (v.len width height) 2)}))
 
 ;; All Together!
 {;Assets
-  :arrow (img :arrow.png)
+  :arrow (img :arrow.png (/ math.pi 2))
   :background (img :background.png)
   :checkpoint (checkpoint check-blue check-yellow line-blue 3 8) 
   :checkpoint-deactivated (checkpoint check-blue check-yellow line-red 3 8)
@@ -136,7 +139,9 @@
   :endpoint-deactivated (checkpoint end-blue end-yellow line-red 3 8)
   :playerShip (-> (img :playerShip.png)
                   (with-hitbox))
+  :speed (img :speed.png math.pi)
   :stars1 (gen-starfield 1500 1500 75 star1 0.8 0.5)
   :stars2 (gen-starfield 1500 1500 50 star2 0.6 0.5)
-  :stars3 (gen-starfield 1500 1500 25 star3 0.5 0.5)}
+  :stars3 (gen-starfield 1500 1500 25 star3 0.5 0.5)
+  :thrust (img :thrust.png)}
  

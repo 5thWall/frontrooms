@@ -4,20 +4,17 @@ Race around asteroid field
 
 
 ## TODO
-- [x] Direction to next chkpt
-  - [x] chain entities together
-  - [x] mark next active
 - [] start/finish
   - [] resets all checkpoints
 - [] time laps
   - [] finish resets timer/checkpoints
   - [] save max time
   - [] split times
-- [] player thrust visible
 - [] player speed visible
 - [] SFX
 - [] Out of Bounds
 - [] asteroid obstacles
+  - [] obsticals have collision
 - [] enemy obstacles
 - [] health
 - [] powerups
@@ -26,6 +23,10 @@ Race around asteroid field
 - [] main menu
   - [] arcade
   - [] endless
+- [x] player thrust visible
+- [x] Direction to next chkpt
+  - [x] chain entities together
+  - [x] mark next active
 - [x] Visible player entity
 - [x] player can move
   - [x] movement components/systems

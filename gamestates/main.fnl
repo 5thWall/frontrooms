@@ -26,6 +26,7 @@
       s.cross-checkpoint
       s.update-guide
       s.camera
+      s.draw-thrust
       s.draw)
       ; s.draw-hitbox)
 

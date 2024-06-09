@@ -14,6 +14,6 @@
             res (world:getResource e.drawable.key)]
         (ldraw res.img
               e.position.x e.position.y
-              e.position.r
+              (+ e.position.r res.roff)
               e.drawable.sx e.drawable.sy
               (/ res.width 2) (/ res.height 2)))))})

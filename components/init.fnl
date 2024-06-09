@@ -13,6 +13,7 @@
   :player
   :position
   :prev-point
+  :thrust-offset
   :turn
   :drawable
   :velocity)

@@ -8,11 +8,11 @@
  {:crossing
   (fn crossing [self _dt]
     (each [_ e (ipairs self.pool)]
+      (set e.drawable.key e.checkpoint.inactive-key)
+      (e:remove :crossed)
+      (e:remove :active)
       (let [next e.next-point.point]
         (next:give :active)
         (set next.drawable.key next.checkpoint.active-key)
         (each [_ g (ipairs self.guides)]
-          (if (= g.guide.to e) (set g.guide.to next))))
-      (set e.drawable.key e.checkpoint.inactive-key)
-      (e:remove :crossed)
-      (e:remove :active)))})
+          (if (= g.guide.to e) (set g.guide.to next))))))})
