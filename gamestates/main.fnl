@@ -24,18 +24,16 @@
       s.update-hitbox
       s.checkpoint-hit
       s.cross-checkpoint
+      s.update-guide
       s.camera
-      s.draw
-      s.draw-hitbox)
+      s.draw)
+      ; s.draw-hitbox)
 
     (each [key img (pairs images)]
       (let [ikey (.. :image. key)]
         (print (.. "Setting Resource " ikey))
         (world:setResource ikey img)))
     (print "Finished loading resources")
-
-    (-> (world:newEntity)
-        (: :assemble a.player :image.playerShip))
     
     (load-level :01-Tutorial world)
     
@@ -62,10 +60,12 @@
         st3-layer (world:getResource :layer.st3)
         st3-img (world:getResource :image.stars3)]
     (with.camera camera
+      (camera:zoomTo 1)
       (bg-layer:draw (fn [] (bg-layer:draw_tiled_xy 0 0 bg-img.img)))
       (st1-layer:draw (fn [] (st1-layer:draw_tiled_xy 0 0 st1-img.img)))
       (st2-layer:draw (fn [] (st2-layer:draw_tiled_xy 0 0 st2-img.img)))
       (st3-layer:draw (fn [] (st3-layer:draw_tiled_xy 0 0 st3-img.img)))
+      (camera:zoomTo 0.5)
       (self.world:emit :draw))))
 
  :keypressed

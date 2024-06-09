@@ -3,7 +3,7 @@
 (import-macros {: new-system} :macros.ecs)
 
 (new-system ;checkpoint-hit
- {:pool [:hitbox :checkpoint]
+ {:pool [:hitbox :checkpoint :active]
   :players [:hitbox :player]}
  
  {:update
@@ -14,9 +14,9 @@
       (each [_ e (ipairs self.pool)]
         (let [cbox e.hitbox.hitbox]
           (when (s.aabb pbox cbox)
-            (print "close enough")
+            ; (print "close enough")
             (when (s.triking pbox cbox)
-              (print "Strike detected")
+              ; (print "Strike detected")
               (set hit? true)
               (e:give :crossed))))
       

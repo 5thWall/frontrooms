@@ -7,5 +7,6 @@
  {:crossing
   (fn crossing [self _dt]
     (each [_ e (ipairs self.pool)]
-      (set e.drawable.key :image.checkpoint-deactivated)
-      (e:remove :crossed)))})
+      (set e.drawable.key e.checkpoint.inactive-key)
+      (e:remove :crossed)
+      (e:remove :active)))})

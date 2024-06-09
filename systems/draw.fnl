@@ -15,5 +15,5 @@
         (ldraw res.img
               e.position.x e.position.y
               e.position.r
-              0.5 0.5
+              e.drawable.sx e.drawable.sy
               (/ res.width 2) (/ res.height 2)))))})

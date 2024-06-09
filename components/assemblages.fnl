@@ -1,25 +1,28 @@
-(fn player [entity asset-key speed turn]
+(fn player [entity x y tau]
   (-> entity
-      (: :give :player speed turn)
-      (: :give :position 0 0 0)
+      (: :give :player 50 180)
+      (: :give :position x y tau)
       (: :give :velocity 0 0)
-      (: :give :drawable asset-key)
-      (: :give :hitbox asset-key)))
+      (: :give :drawable :image.playerShip)
+      (: :give :hitbox :image.playerShip)))
       
-
 
 (fn checkpoint [entity x y tau]
   (-> entity
       (: :give :position x y tau)
       (: :give :drawable :image.checkpoint)
       (: :give :hitbox :image.checkpoint)
-      (: :give :checkpoint)))
+      (: :give :checkpoint false :image.checkpoint :image.checkpoint-deactivated)))
+
 
 (fn endpoint [entity x y tau]
   (-> entity
       (: :give :position x y tau)
       (: :give :drawable :image.endpoint)
       (: :give :hitbox :image.endpoint)
-      (: :give :checkpoint)))
+      (: :give :current)
+      (: :give :active)
+      (: :give :checkpoint true :image.endpoint :image.endpoint-deactivated)))
+
 
 {: player : checkpoint : endpoint}

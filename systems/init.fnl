@@ -10,4 +10,5 @@
  :input
  :move
  :turn
+ :update-guide
  :update-hitbox)

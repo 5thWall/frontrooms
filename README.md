@@ -1,28 +1,21 @@
 # Untitled Watch & Jam Game
 
-- Escape the backrooms to find a spaceship
-- Spaceship fight your way through some waves of enemies
-- Mine resources from asteroids to build a space gate
-- Get home
+Race around asteroid field
 
 
 ## TODO
-- [x] satelite checkpoints
-  - [x] level generation
-  - [x] detect player
-    - [x] hit-boxes on player and checkpoints
-    - [x] mark chk and send event
-  - [] Direction to next one
-  - [] start/finish
-    - [] resets all checkpoints
+- [] Direction to next chkpt
+  - [] chain entities together
+  - [] mark next active
+- [] start/finish
+  - [] resets all checkpoints
 - [] time laps
   - [] finish resets timer/checkpoints
   - [] save max time
   - [] split times
 - [] player thrust visible
-  - [] SFX
-- [x] splash screen (very important!)
-  - [] figgure out why splash screen doesn't work
+- [] SFX
+- [] Out of Bounds
 - [] asteroid obstacles
 - [] enemy obstacles
 - [] health
@@ -40,3 +33,10 @@
     - [x] camera tracks player
     - [x] more star context layers
 - [x] macro for module initializers
+- [x] splash screen (very important!)
+  - [] figgure out why splash screen doesn't work
+- [x] satelite checkpoints
+  - [x] level generation
+  - [x] detect player
+    - [x] hit-boxes on player and checkpoints
+    - [x] mark chk and send event

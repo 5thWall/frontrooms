@@ -17,6 +17,11 @@
     {: img : height : width : hitbox : radius}))
 
 
+(fn with-hitbox [img]
+  (set img.hitbox (s.trikers.Rectangle 0 0 img.width img.height 0))
+  img)
+
+
 ;;; Starfield Stuff
 (local star1 (new-image :assets/star1.png))
 (local star2 (new-image :assets/star2.png))
@@ -79,7 +84,6 @@
        ;; canzas middle
        w2 (/ width 2)
        h2 (/ height 2)]
-    (print (chbb:getBbox))
     (with.canvas canvas
       (g.push)
       (g.translate w2 h2)
@@ -124,12 +128,14 @@
 
 ;; All Together!
 {;Assets
+  :arrow (img :arrow.png)
   :background (img :background.png)
   :checkpoint (checkpoint check-blue check-yellow line-blue 3 8) 
   :checkpoint-deactivated (checkpoint check-blue check-yellow line-red 3 8)
   :endpoint (checkpoint end-blue end-yellow line-green 3 8)
   :endpoint-deactivated (checkpoint end-blue end-yellow line-red 3 8)
-  :playerShip (img :playerShip.png)
+  :playerShip (-> (img :playerShip.png)
+                  (with-hitbox))
   :stars1 (gen-starfield 1500 1500 75 star1 0.8 0.5)
   :stars2 (gen-starfield 1500 1500 50 star2 0.6 0.5)
   :stars3 (gen-starfield 1500 1500 25 star3 0.5 0.5)}

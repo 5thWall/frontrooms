@@ -1,8 +1,11 @@
-(local {: entity} (require :lib.concord))
-(local {: A} (require :components))
-(local checkpoint A.checkpoint)
-(local endpoint A.endpoint)
+(local off-x -250)
+(local radius (* 5 100000))
 
-{:checkpoints
- [(: (entity) :assemble endpoint 125 0 0 0)
-  (: (entity) :assemble checkpoint 1000 0 0 0)]}
+{:player-start [off-x radius (/ math.pi 2)]
+
+ :start [0 radius math.pi]
+
+ :checkpoints
+ [[radius 0 (/ math.pi 2)]
+  [0 (- radius) math.pi]
+  [(- radius) 0 (/ math.pi -2)]]}
