@@ -1,10 +1,10 @@
-# Untitled Watch & Jam Game
+# The ship's name is The Frontrooms
 
 Race around asteroid field
 
 
 ## TODO
-- [] start/finish
+- [x] start/finish
   - [] resets all checkpoints
 - [] time laps
   - [] finish resets timer/checkpoints

@@ -21,7 +21,6 @@
       (: :give :position x y tau)
       (: :give :drawable :image.endpoint)
       (: :give :hitbox :image.endpoint)
-      (: :give :current)
       (: :give :active)
       (: :give :checkpoint true :image.endpoint :image.endpoint-deactivated)))
 

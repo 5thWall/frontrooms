@@ -6,7 +6,6 @@
   :active
   :checkpoint
   :crossed
-  :current
   :guide
   :hitbox
   :next-point
