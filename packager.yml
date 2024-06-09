@@ -3,12 +3,9 @@ version: 0.0.1
 shortname: frontrooms
 assets:
   - "*.lua"
-  - "*.fnl"
-  - "components/*.fnl"
-  - "gamestates/*.fnl"
-  - "levels/*.fnl"
+  - "components/*.lua"
+  - "gamestates/*.lua"
+  - "levels/*.lua"
   - "lib/**/*.lua"
-  - "lib/**/*.fnl"
-  - "macros/*.fnl"
-  - "systems/*.fnl"
+  - "systems/*.lua"
   - assets/**/*

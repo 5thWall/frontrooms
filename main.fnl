@@ -1,3 +1,4 @@
+(love.filesystem.setRequirePath "?.lua;?/init.lua")
 (local G (require :lib.gamestate))
 (local GS (require :gamestates))
     
