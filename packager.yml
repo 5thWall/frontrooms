@@ -1,0 +1,14 @@
+name: The Ship is Named The Frontrooms
+version: 0.0.1
+shortname: frontrooms
+assets:
+  - "*.lua"
+  - "*.fnl"
+  - "components/*.fnl"
+  - "gamestates/*.fnl"
+  - "levels/*.fnl"
+  - "lib/**/*.lua"
+  - "lib/**/*.fnl"
+  - "macros/*.fnl"
+  - "systems/*.fnl"
+  - assets/**/*

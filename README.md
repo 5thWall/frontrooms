@@ -1,4 +1,4 @@
-# The ship's name is The Frontrooms
+# The Ship is Named "The Frontrooms"
 
 Race around asteroid field
 
