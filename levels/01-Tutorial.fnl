@@ -1,5 +1,5 @@
 (local off-x -250)
-(local radius (* 5 100000))
+(local radius (* 5 100))
 
 {:player-start [off-x radius (/ math.pi 2)]
 

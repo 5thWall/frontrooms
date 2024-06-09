@@ -4,9 +4,9 @@ Race around asteroid field
 
 
 ## TODO
-- [] Direction to next chkpt
-  - [] chain entities together
-  - [] mark next active
+- [x] Direction to next chkpt
+  - [x] chain entities together
+  - [x] mark next active
 - [] start/finish
   - [] resets all checkpoints
 - [] time laps
@@ -14,6 +14,7 @@ Race around asteroid field
   - [] save max time
   - [] split times
 - [] player thrust visible
+- [] player speed visible
 - [] SFX
 - [] Out of Bounds
 - [] asteroid obstacles
